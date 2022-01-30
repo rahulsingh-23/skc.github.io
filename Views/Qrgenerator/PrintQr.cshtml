@@ -1,0 +1,115 @@
+﻿@model  QRCODE_MLC.Models.QrModel
+@{
+    Layout = null;
+    ViewBag.Title = "PrintQr";
+    var strAtr = "@";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>S K Chauhan || MLC</title>
+    <link href="~/css/css2.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body style="-webkit-print-color-adjust: exact !important;">
+    <div style="max-width: 700px; margin: 0 auto; border: 2px solid; background: url('../img/watremark.png')no-repeat; background-size: 95%; background-position: center;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;margin: 0;">
+                        <p style="font-family: 'Source Serif 4', sans-serif; margin-top: 0;padding: 8px 0;margin: 0;font-weight: 700;font-size: 26px;">Geology & Mining Unit</p>
+                        <p style="font-family: 'Source Serif 4', sans-serif;margin: 0;font-size: 15px;font-weight: 400;text-align: center;text-transform: uppercase;">(Directorate of Industries Uttarakhand)</p>
+                        <img src="~/img/logo.png" alt="logo">
+                        <p style="font-family: 'Source Serif 4', sans-serif;padding:2px 32px;margin: 0;font-size: 12px;text-align: center;text-transform: uppercase;">
+                            Uttarakhand mineral (Prevention of illegal mining, transportaion and storage) rules, 2005 e-Transit pass form for transportation & minor mineral from stock see rule 70 (1)
+                        </p>
+                        <p style="font-family: 'Domine', serif; margin-top: 0;padding: 10px 0;margin: 0;font-weight: 700;text-decoration: underline;font-size: 20px;">Form J</p>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px;">
+            <tr>
+                <td width="65%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;font-weight: bold;vertical-align: top;padding: 6px 0">GSTIN : <span style="font-weight: normal;">@Model.GSTIN</span></td>
+                <td width="35%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;padding: 6px 0;font-weight:600;"> Form No : <span style="font-weight: normal;">@Model.FormNo</span> </td>
+            </tr>
+            <tr>
+                <td width="65%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;font-weight: bold;vertical-align: top;padding: 6px 0">Registration No : <span style="font-weight: normal;">@Model.RegistrationNo</span></td>
+                <td width="35%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;padding: 6px 0;font-weight:600;"> Date of Time : <span style="text-align: left;font-weight: normal;">@Model.DateTime</span></td>
+            </tr>
+            <tr>
+                <td width="65%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;font-weight: bold;vertical-align: top;padding: 6px 0">Onwer Name : <span style="font-weight: normal;">@Model.OnwerName1 <br />@Model.OnwerName2</span></td>
+                <td width="35%" style="text-align: left;font-family: 'Source Serif 4', sans-serif;font-size: 12px;padding: 6px 0;font-weight:600;"> Lease Address : <span style="font-weight: normal;"> @Model.LeaseAddress</span></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table width="95%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px;margin:0 auto;">
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Type of Vehicle</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.TypeOfVehicle</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Registration of Vehicle</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.RegistrationOfVehicle</td>
+            </tr>
+
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Name of Driver</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.NameOfDriver</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Name of Mineral (In Tons)</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.NameOfMineral</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Weight of Mineral (In Tons)</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0"><span>&#8377</span>@Model.WeightOfMineral</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Sale Value/Approximate Value Including Tax</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0"><span>&#8377</span>@Model.SaleValueTax</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Payble CGST @strAtr 2.50%</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0"><span>&#8377</span>@Model.CGST</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Payble SCGST @strAtr 2.50%</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0"><span>&#8377</span> @Model.SGST</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Name of Purchaser</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.NameOfPurchaser</td>
+            </tr>
+            <tr>
+                <td width="45%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0;text-align:left;">Adddress of Destination</td>
+                <td width="40%" style="font-family: 'Source Serif 4', sans-serif;font-size: 12px;vertical-align: top;padding: 6px 0">@Model.AddressOfDestination</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;padding-top: 100px;"><img src="@Model.QrURL" alt="logo" width="100px"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;font-family: 'Source Serif 4', sans-serif;font-size: 12px;font-weight: 500;margin-bottom: 3px;">
+                <span style="font-weight:bold;">(Scan This QR With A QR Reader)</span></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;font-family: 'Source Serif 4', sans-serif;font-size: 13px;font-weight: 500;background: #e3e3e3;border-radius: 20px;padding: 6px;border: 1px solid;">THIS FORM IS VALID UPTO @Model.ValidUpto</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

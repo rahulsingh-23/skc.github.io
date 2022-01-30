@@ -1,0 +1,127 @@
+﻿@model  QRCODE_MLC.Models.QrModel
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>S K Chauhan || MLC</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="~/css/montserrat-font.css">
+    <link rel="stylesheet" type="text/css" href="~/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body class="form-v10">
+    <div class="page-content">
+        <div class="form-v10-content">
+            @using (Html.BeginForm("Index", "Qrgenerator", FormMethod.Post, new { @class = "form-detail", autocomplete = "off", enctype = "multipart/form-data", target = "_blank" }))
+            {
+                <div class="form-left">
+                    <h2>Geology & Mining Unit</h2>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.GSTIN, new { placeholder = "GSTIN", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.RegistrationNo, new { placeholder = "Registration No", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            @Html.TextBoxFor(m => m.OnwerName1, new { placeholder = "Onwer Name", @class = "input-text alfaCaps" })
+                        </div>
+                        <div class="form-row form-row-2">
+                            @Html.TextBoxFor(m => m.OnwerName2, new { placeholder = "Onwer Name", @class = "input-text alfaCaps" })
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.FormNo, new { placeholder = "Form No", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.DateTime, new { placeholder = "Date and Time", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.LeaseAddress, new { placeholder = "Lease Address", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        <b>Valid Up to Time Change</b>
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.ValidUpto, new { placeholder = "Valid Upto", @class = "input-text", @type = "datetime-local", required = "required" })
+                    </div>
+                </div>
+                <div class="form-right">
+                    <h2>Geology & Mining Unit</h2>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.TypeOfVehicle, new { placeholder = "Type of Vehicle", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.RegistrationOfVehicle, new { placeholder = "Registration No of Vehicle", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.NameOfDriver, new { placeholder = "Name of Driver", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.NameOfMineral, new { placeholder = "Name of Mineral", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.WeightOfMineral, new { placeholder = "Weight of Mineral", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.SaleValueTax, new { placeholder = "Sale Value/Approximate Value Including Tax", @class = "input-text number", @maxlength = 15 })
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-3">
+                            @Html.TextBoxFor(m => m.CGST, new { placeholder = "CGST @ 2.50%", @class = "input-text", @readonly = true })
+                        </div>
+                        <div class="form-row form-row-3">
+                            @Html.TextBoxFor(m => m.SGST, new { placeholder = "SGST @ 2.50%", @class = "input-text", @readonly = true })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.NameOfPurchaser, new { placeholder = "Name of Purchaser", @class = "input-text alfaCaps" })
+                    </div>
+                    <div class="form-row">
+                        @Html.TextBoxFor(m => m.Destination, new { placeholder = "Destination", @class = "input-text alfaCaps" })
+                    </div>
+                     <div class="form-row">
+                        @Html.TextBoxFor(m => m.AddressOfDestination, new { placeholder = "Address of Destination", @class = "input-text" })
+                    </div>
+
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="QR" tabindex="-1">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+<script>
+    $('.number').keypress(function (event) {
+        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+
+    $(".alfaCaps").keyup(function () {
+        $(this).val($(this).val().toUpperCase());
+    });
+
+    $('#SaleValueTax').on('input', function () {
+        var num = $(this).val();
+        var cgst = num * 2.5 / 100;
+        var sgst = num * 2.5 / 100;
+        $('#CGST').val(cgst.toFixed(2))
+        $('#SGST').val(sgst.toFixed(2))
+    });
+
+</script>
